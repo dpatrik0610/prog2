@@ -11,25 +11,25 @@ public class Main {
     /** Decides if the new line is a valid 3 or 4 param. Present*/
     private static Present decidePresent(String[] line){
         try{
+            Present newPresent;
             if (line.length == 3){
-                Present newPresent = new Present(
+                newPresent = new Present(
                         line[0],
                         Double.parseDouble(line[1]),
                         Integer.parseInt(line[2])
                 );
-                return newPresent;
             } else if (line.length == 4) {
-                Present newToy = new Toy(
+                newPresent = new Toy(
                         line[0],
                         Double.parseDouble(line[1]),
                         Integer.parseInt(line[2]),
                         Integer.parseInt(line[3])
                 );
-                return newToy;
             }
             else {
                 throw new BadInputException("Bad Input!");
             }
+            return newPresent;
         }
         catch (BadInputException e) {
             System.out.println(e.getMessage());
@@ -40,9 +40,9 @@ public class Main {
     /** Fills the bag with the proper Presents */
     private static void fillBag(Bag myBag){
         try{
-            Scanner scanner = new Scanner(new File("./src/data.txt"));
+            Scanner scanner = new Scanner(new File("./src/data.csv"));
             while (scanner.hasNextLine()){
-                String[] line = scanner.nextLine().split(";");
+                String[] line = scanner.nextLine().split(",");
                 myBag.addPresent(decidePresent(line));
             }
             scanner.close();
