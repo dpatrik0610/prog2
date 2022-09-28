@@ -1,2 +1,3 @@
 # prog2
-prog2 course 
+"High Level Programming Languages 2" course stuff in JAVA
+2022, 3rd semester
