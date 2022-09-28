@@ -29,7 +29,6 @@ public class Present{
     public void setWeight(double weight) {
         this.weight = weight;
     }
- /** Gets the price of the Present */
     public int getPrice() {
         return price;
     }

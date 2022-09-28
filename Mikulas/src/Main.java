@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
+    /** Decides if the new line is a valid 3 or 4 param. Present*/
     private static Present decidePresent(String[] line){
         try{
             if (line.length == 3){
@@ -32,10 +33,11 @@ public class Main {
         }
         catch (BadInputException e) {
             System.out.println(e.getMessage());
-            Runtime.getRuntime().exit(69);
+            Runtime.getRuntime().exit(400);
         }
         return null;
     }
+    /** Fills the bag with the proper Presents */
     private static void fillBag(Bag myBag){
         try{
             Scanner scanner = new Scanner(new File("./src/data.txt"));
