@@ -2,6 +2,7 @@ package TérképKiadó;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Atlasz implements TerkepTar{
     public List<Terkep> terkepList;
@@ -36,6 +37,10 @@ public class Atlasz implements TerkepTar{
 
     @Override
     public String toString() {
-        return terkepList.toString();
+        String line = "";
+        for(Terkep t : terkepList){
+            line += t.toString() + "\n";
+        }
+        return line;
     }
 }
