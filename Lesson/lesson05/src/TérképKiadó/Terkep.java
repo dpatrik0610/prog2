@@ -19,6 +19,7 @@ public class Terkep {
         }
     }
 
+    public Terkep(){}
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,6 +57,20 @@ public class Terkep {
     public void addNevjegyzek(String nev){
         nevjegyzek.add(nev);
     }
+    public List<String> getNevjegyzek() {
+        return nevjegyzek;
+    }
+
+    public void shrinkNevjegyzek(int hosszusag){
+        List<String> ujNevjegyzek = new ArrayList<>();
+        for(String item : nevjegyzek){
+            if (item.length() == hosszusag){
+                ujNevjegyzek.add(item);
+            }
+        }
+
+        this.nevjegyzek = ujNevjegyzek;
+    }
 
     public boolean nagybetusit(){
         boolean valtozott = false;
@@ -83,7 +98,7 @@ public class Terkep {
      * terkepKiado csomag: public interface TerkepTar{
      *  public void hozzaad(TérképKiadó.Terkep[] terkepek);
      *  visszaadja a terkeptarban talalhato olyan terkepek listajat, amelyek a nevjegyzekeben legalább a
-     *  masodik paraméterként megkapott darabszámú név szerepel (adott hosszúságnak megfelelő név;
+     *  masodik paraméterként megkapott darabszámú név szerepel (adott hosszúságnak megfelelő név)
      *  ha az első paraméter igaz, akkor csak a tematikus terkepeket, ha hamis, akkor mindegyiket.
      *  public java.util.List<TérképKiadó.Terkep> terkepek(boolean csakTematikus, int nevekSzama);
      * }

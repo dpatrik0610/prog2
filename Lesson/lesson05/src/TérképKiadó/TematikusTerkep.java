@@ -9,7 +9,7 @@ public class TematikusTerkep extends Terkep {
         super(cim, meretarany);
         this.tema = tema;
     }
-
+    public TematikusTerkep(){}
     public String getTema() {
         return tema;
     }

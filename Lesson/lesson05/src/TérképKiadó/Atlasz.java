@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Atlasz implements TerkepTar{
     public List<Terkep> terkepList;
-    public Atlasz(List<Terkep> terkepList) {
-        this.terkepList = terkepList;
+    public Atlasz() {
+        this.terkepList = new ArrayList<>();
     }
 
     @Override
@@ -17,17 +17,21 @@ public class Atlasz implements TerkepTar{
     }
 
     @Override
-    public List<Terkep> terkepek(boolean csakTematikus, int nevekSzama) {
+    public List<Terkep> terkepek(boolean csakTematikus, int hosszusag) {
         List<Terkep> t = new ArrayList<>();
         for(Terkep item : terkepList){
-            if (csakTematikus && item.getClass() == TematikusTerkep.class)
+            if (csakTematikus && item.getClass().equals(TematikusTerkep.class)) {
+                item.shrinkNevjegyzek(hosszusag);
                 t.add(item);
-            else{
+            }
+
+            if(!csakTematikus){
+                item.shrinkNevjegyzek(hosszusag);
                 t.add(item);
             }
         }
+
         return t;
-        // TODO: nevekszama
     }
 
     @Override
