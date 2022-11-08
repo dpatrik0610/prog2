@@ -1,0 +1,3 @@
+R;Boeing;747-8F;76.25;S
+U;Bombardier;Q400;32.81;N;78
+R;NotBombardier;Q41;80.81;S
